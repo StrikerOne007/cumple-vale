@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Valentina!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Comic+Neue:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Comic Neue', cursive;
+            overflow-x: hidden;
+        }
+        
+        .card {
+            background: linear-gradient(145deg, #ffffff, #f0f8ff);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: cardFloat 3s ease-in-out infinite;
+            border: 5px solid #ff6b9d;
+        }
+        
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: confettiFall 3s linear infinite;
+        }
+        
+        .confetti:nth-child(1) { background: #ff6b9d; left: 10%; animation-delay: 0s; }
+        .confetti:nth-child(2) { background: #4ecdc4; left: 20%; animation-delay: 0.5s; }
+        .confetti:nth-child(3) { background: #45b7d1; left: 30%; animation-delay: 1s; }
+        .confetti:nth-child(4) { background: #f9ca24; left: 40%; animation-delay: 1.5s; }
+        .confetti:nth-child(5) { background: #6c5ce7; left: 50%; animation-delay: 2s; }
+        .confetti:nth-child(6) { background: #a29bfe; left: 60%; animation-delay: 2.5s; }
+        .confetti:nth-child(7) { background: #fd79a8; left: 70%; animation-delay: 3s; }
+        .confetti:nth-child(8) { background: #00b894; left: 80%; animation-delay: 3.5s; }
+        
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        .title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3.5em;
+            color: #ff6b9d;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0px #fff, 6px 6px 0px #ff9a9e;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 60%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            80% { transform: translateY(-5px); }
+        }
+        
+        .characters-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .character {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            animation: characterBounce 2s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .character:hover {
+            transform: scale(1.2);
+        }
+        
+        .shrimpo {
+            background: linear-gradient(145deg, #ff7675, #fd79a8);
+            background-image: url('https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/1/1c/Shrimpo_hurt.png/revision/latest/scale-to-width-down/250?cb=20241108094159');
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-delay: 0s;
+        }
+        
+        .finn {
+            background: linear-gradient(145deg, #74b9ff, #0984e3);
+            background-image: url('https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/6/6e/Finn_Info_Card_Artwork.png/revision/latest/scale-to-width/360?cb=20241231144240');
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-delay: 0.5s;
+        }
+        
+        .yatta {
+            background: linear-gradient(145deg, #4ECDC4, #45B7D1);
+            background-image: url('https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/4/45/Yatta_Emoji.png/revision/latest?cb=20250315071014');
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-delay: 1s;
+        }
+        
+        .astro {
+            background: linear-gradient(145deg, #6c5ce7, #a29bfe);
+            background-image: url('https://static.wikia.nocookie.net/p__/images/a/aa/Astro.png/revision/latest/scale-to-width/360?cb=20250324150453&path-prefix=protagonist');
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-delay: 1.5s;
+        }
+        
+        .dandy {
+            background: linear-gradient(145deg, #ff6b9d, #fd79a8);
+            background-image: url('https://img1.picmix.com/output/stamp/normal/7/7/8/1/2691877_aa3c8.png');
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-delay: 2s;
+        }
+        
+        @keyframes characterBounce {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(-5deg); }
+            50% { transform: translateY(0px) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(5deg); }
+        }
+        
+        .speech-bubble {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 0.3em;
+            font-weight: bold;
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
+        
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid white;
+        }
+        
+        .character:hover .speech-bubble {
+            opacity: 1;
+        }
+        
+        .birthday-info {
+            background: linear-gradient(145deg, #ffeaa7, #fab1a0);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 3px solid #e17055;
+        }
+        
+        .birthday-info h2 {
+            font-family: 'Fredoka One', cursive;
+            color: #d63031;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #d63031; }
+            to { text-shadow: 0 0 20px #d63031, 0 0 30px #d63031; }
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2d3436;
+        }
+        
+        .info-item span {
+            margin: 0 10px;
+        }
+        
+        .icon {
+            font-size: 1.5em;
+            animation: spin 3s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .celebration-text {
+            font-size: 1.4em;
+            color: #6c5ce7;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: rainbow 3s linear infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { color: #ff6b9d; }
+            16% { color: #4ecdc4; }
+            32% { color: #45b7d1; }
+            48% { color: #f9ca24; }
+            64% { color: #6c5ce7; }
+            80% { color: #a29bfe; }
+            100% { color: #ff6b9d; }
+        }
+        
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            color: #ffd700;
+            font-size: 20px;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+        
+        .star:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+        .star:nth-child(2) { top: 20%; right: 20%; animation-delay: 0.5s; }
+        .star:nth-child(3) { bottom: 30%; left: 10%; animation-delay: 1s; }
+        .star:nth-child(4) { bottom: 15%; right: 15%; animation-delay: 1.5s; }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.2); }
+        }
+        
+        .footer-message {
+            margin-top: 25px;
+            font-size: 1.2em;
+            color: #2d3436;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    
+    <div class="card">
+        <div class="stars">
+            <div class="star">⭐</div>
+            <div class="star">✨</div>
+            <div class="star">⭐</div>
+            <div class="star">✨</div>
+        </div>
+        
+        <h1 class="title">¡ESTÁS INVITADO!</h1>
+        
+        <div class="celebration-text">
+            ¡Acompáñanos a celebrar el cumpleaños de Valentina! 🎉
+        </div>
+        
+        <div class="characters-container">
+            <div class="character shrimpo" onclick="playSound('shrimpo')">
+                <div class="speech-bubble">¡Odio las fiestas... pero esta está bien!</div>
+            </div>
+            <div class="character finn" onclick="playSound('finn')">
+                <div class="speech-bubble">¡Espero que tengas un día increíble!</div>
+            </div>
+            <div class="character yatta" onclick="playSound('yatta')">
+                <div class="speech-bubble">¡Yatta! ¡Será un día fantástico!</div>
+            </div>
+            <div class="character astro" onclick="playSound('astro')">
+                <div class="speech-bubble">¡Las estrellas se alinean por ti hoy!</div>
+            </div>
+            <div class="character dandy" onclick="playSound('dandy')">
+                <div class="speech-bubble">¡Te invito a la fiesta más genial del mundo!</div>
+            </div>
+        </div>
+        
+        <div class="birthday-info">
+            <h2>Valentina Trillo Laor</h2>
+            <div class="info-item">
+                <img src="https://static.wikia.nocookie.net/p__/images/1/1a/Pebble.png/revision/latest?cb=20250324152514&path-prefix=protagonist" alt="Girl in a jacket" width="25" height="25">
+                <span>¡Cumples 12 años!</span>
+                <img src="https://static.wikia.nocookie.net/p__/images/1/1a/Pebble.png/revision/latest?cb=20250324152514&path-prefix=protagonist" alt="Girl in a jacket" width="25" height="25">
+            </div>
+            <div class="info-item">
+                <img src="https://static.wikia.nocookie.net/p__/images/1/1a/Pebble.png/revision/latest?cb=20250324152514&path-prefix=protagonist" alt="Girl in a jacket" width="25" height="25">
+                <span>Fecha: 9 de Junio, 2025</span>
+                <img src="https://static.wikia.nocookie.net/p__/images/1/1a/Pebble.png/revision/latest?cb=20250324152514&path-prefix=protagonist" alt="Girl in a jacket" width="25" height="25">
+            </div>
+            <div class="info-item">
+                <img src="https://static.wikia.nocookie.net/p__/images/1/1a/Pebble.png/revision/latest?cb=20250324152514&path-prefix=protagonist" alt="Girl in a jacket" width="25" height="25">
+                <span>Lugar: Colegio Juan Bautista</span>
+                <img src="https://static.wikia.nocookie.net/p__/images/1/1a/Pebble.png/revision/latest?cb=20250324152514&path-prefix=protagonist" alt="Girl in a jacket" width="25" height="25">
+            </div>
+        </div>
+        
+        <div class="celebration-text">
+            ¡Los Toons de Dandy's World te esperan para una aventura increíble! 
+            <img src="https://static.wikia.nocookie.net/dandysworld/images/2/29/Dandy_Render.png/revision/latest?cb=20241223150434&path-prefix=es" alt="Girl in a jacket" width="25" height="25">
+        </div>
+        
+        <div class="footer-message">
+            ¡Ven y disfruta de la diversión y muchas sorpresas! ✨<br>
+            <strong>¡Tu presencia hará esta fiesta aún más especial!</strong>
+        </div>
+    </div>
+    
+    <script>
+        // Función para simular sonidos de personajes
+        function playSound(character) {
+            const messages = {
+                'shrimpo': '¡Hmph! Supongo que... ¡Ven a la fiesta!',
+                'finn': '¡Wow! ¡Será increíble tenerte ahí, amigo!',
+                'yatta': '¡Yatta! ¡Te esperamos para celebrar juntos!',
+                'astro': '✨ Las estrellas se alinean para esta celebración ✨',
+                'dandy': '🌻 ¡Será la fiesta más genial del mundo! 🌻'
+            };
+            
+            // Crear un elemento de audio visual
+            const messageEl = document.createElement('div');
+            messageEl.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(145deg, #667eea, #764ba2);
+                color: white;
+                padding: 20px 30px;
+                border-radius: 25px;
+                font-size: 1.2em;
+                font-weight: bold;
+                z-index: 1000;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                animation: messageAppear 0.5s ease-out;
+            `;
+            
+            messageEl.textContent = messages[character];
+            document.body.appendChild(messageEl);
+            
+            // Remover el mensaje después de 3 segundos
+            setTimeout(() => {
+                messageEl.style.animation = 'messageDisappear 0.5s ease-in';
+                setTimeout(() => {
+                    document.body.removeChild(messageEl);
+                }, 500);
+            }, 2500);
+        }
+        
+        // Añadir animaciones CSS dinámicamente
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes messageAppear {
+                from { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+                to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            }
+            
+            @keyframes messageDisappear {
+                from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                to { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Función para crear más confeti al hacer clic
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('character')) {
+                createConfetti(e.clientX, e.clientY);
+            }
+        });
+        
+        function createConfetti(x, y) {
+            const colors = ['#ff6b9d', '#4ecdc4', '#45b7d1', '#f9ca24', '#6c5ce7', '#a29bfe'];
+            
+            for (let i = 0; i < 10; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.cssText = `
+                    position: fixed;
+                    width: 8px;
+                    height: 8px;
+                    background: ${colors[Math.floor(Math.random() * colors.length)]};
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1000;
+                    left: ${x}px;
+                    top: ${y}px;
+                `;
+                
+                document.body.appendChild(confetti);
+                
+                const angle = (Math.PI * 2 * i) / 10;
+                const velocity = 100 + Math.random() * 50;
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity;
+                
+                confetti.animate([
+                    { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                    { transform: `translate(${vx}px, ${vy}px) scale(0)`, opacity: 0 }
+                ], {
+                    duration: 1000,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                }).onfinish = () => confetti.remove();
+            }
+        }
+    </script>
+</body>
+</html>
